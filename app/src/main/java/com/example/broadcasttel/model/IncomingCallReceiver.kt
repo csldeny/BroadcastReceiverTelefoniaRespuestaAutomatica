@@ -28,11 +28,8 @@ class IncomingCallReceiver : BroadcastReceiver() {
             override fun onCallStateChanged(state: Int, phoneNumber: String) {
                 super.onCallStateChanged(state, phoneNumber)
                 if (state == TelephonyManager.CALL_STATE_RINGING) {
-                    // Send message to the incoming number here
-                    Log.d("TEL", "Número de teléfono: $phoneNumber")
+                    Log.d("TEL", "Telefono: $phoneNumber")
                     sendMessage(context,phoneNumber)
-                    // Obtener el número de teléfono durante una llamada entrante
-                    //showToastMsg(context, msg = "T:$phoneNumber")
                 }
             }
         }
@@ -42,16 +39,11 @@ class IncomingCallReceiver : BroadcastReceiver() {
     private fun sendMessage(context: Context,phoneNumber: String?) {
        if (!phoneNumber.isNullOrBlank()){
            val smsManager = SmsManager.getDefault()
-           val message = "Hello, this is an automated message."
+           val message = "El nenesh automatico xD"
            smsManager.sendTextMessage(phoneNumber, null, message, null, null)
-           showToastMsg(context, msg = "Mensaje Enviado")
+           showToastMsg(context, msg = "Enviado")
        }else{
            showToastMsg(context, msg = "Tel:$phoneNumber")
        }
     }
-
-//    override fun onDestroy() {
-//        super.onDestroy()
-//        telephonyManager.listen(phoneStateListener, PhoneStateListener.LISTEN_NONE)
-//    }
 }

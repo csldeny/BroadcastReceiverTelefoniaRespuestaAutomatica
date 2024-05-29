@@ -15,14 +15,14 @@ class CallReceiver : BroadcastReceiver() {
     }
     override fun onReceive(context: Context?, intent: Intent?) {
         if (intent!!.getStringExtra(TelephonyManager.EXTRA_STATE) == TelephonyManager.EXTRA_STATE_OFFHOOK) {
-            showToastMsg(context!!, msg = "Phone CALL IS STARED..!")
+            showToastMsg(context!!, msg = "LA LLAMADA ESTA INICIANDO")
         } else if (intent.getStringExtra(TelephonyManager.EXTRA_STATE) == TelephonyManager.EXTRA_STATE_IDLE){
-            showToastMsg(context!!, msg = "Phone CALL IS ENDED..!")
+            showToastMsg(context!!, msg = "LA LLAMADA ESTA TERMINANDO")
         }else if (intent.getStringExtra(TelephonyManager.EXTRA_STATE) == TelephonyManager.EXTRA_STATE_RINGING){
-            showToastMsg(context!!, msg = "INCOMING CALL..!")
+            showToastMsg(context!!, msg = "LLAMADA ENTRNTE")
 
         }else{
-            showToastMsg(context!!, msg = "NOTHING..!")
+            showToastMsg(context!!, msg = "NADA")
         }
     }
 }
